@@ -610,3 +610,69 @@ Zero errors. Two warnings in app.js regarding ES6 arrow functions in `forEach` �
 | Distinction: Robust code | D(viii) | Yes — null checks, try/catch, edge case guards |
 | Distinction: History API | D(ix) | Yes — navigation.js: pushState/replaceState/popstate |
 | Distinction: External links new tab | D(x) | Yes — all target="_blank" rel="noopener noreferrer" |
+
+
+
+
+## UX Design & Wireframes (Requirement M(v))
+
+### Design Rationale
+- **Color Palette:** A Primary Purple (#6c63ff) was chosen to evoke creativity and trust, contrasted with Energy Orange (#ff6b35) for high-conversion Action Buttons.
+- **Typography:** Used system-safe sans-serif fonts to ensure 0ms render delay and maximum readability for mobile users.
+- **Layout:** Implemented a single-column stack for mobile (375px) that expands to a 3-column grid for desktop (1200px) using Bootstrap 5's flexible grid system.
+
+### Wireframes
+Digital wireframes were created to map the Information Hierarchy before development:
+![Desktop Wireframe](assets/images/documentation/wireframe-desktop.png)
+![Mobile Wireframe](assets/images/documentation/wireframe-mobile.png)
+
+## User Stories (Requirement 1.1)
+1. **As a Shopper**, I want to browse products by category so that I can find electronics quickly.
+2. **As a User**, I want to see a loading indicator so that I know the website is processing my request.
+3. **As a Shopper**, I want to add items to a cart so that I can review my total before buying.
+4. **As a Mobile User**, I want a sticky navigation bar so that I can access my cart from any scroll position.
+5. **As a Budget-Conscious Buyer**, I want to sort products by price so that I can find the best deals.
+6. **As a Visitor**, I want to be redirected back home if I hit a broken link so that I don't get stuck.
+
+## Testing & Bug Log (Requirement LO3)
+
+### Manual Testing Table
+| Feature | Steps | Expected Result | Actual Result | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| **Async Load** | Refresh Page | Spinner shows, then products appear | As expected | PASS |
+| **Error Handling**| Rename products.json | "Retry" button and error message show | As expected | PASS |
+| **404 Redirect** | Go to /wrong.html | Redirects to index.html in 10s | As expected | PASS |
+| **Back Button** | Filter category, click Back | URL and Grid revert to previous state | As expected | PASS |
+| **Cart Persistence**| Add item, refresh page | Cart badge remains at 1 | As expected | PASS |
+| **Responsive** | Resize to 375px | Product grid becomes 1 column | As expected | PASS |
+| **Validation** | Submit empty form | Browser stops submit, shows error | As expected | PASS |
+| **Links** | Click Footer Socials | Opens in new tab with noopener | As expected | PASS |
+| **Search** | Type "Watch" | Only watch products remain visible | As expected | PASS |
+| **Checkout** | Complete payment | Success modal appears, cart clears | As expected | PASS |
+
+### Bug Log
+| Bug ID | Description | Fix |
+| :--- | :--- | :--- |
+| BUG01 | Cart total failed to update when items were removed. | Added a `renderOrderSummary()` call inside the delete event listener. |
+| BUG02 | Images were "stretching" on tablet view. | Applied `object-fit: cover` and fixed heights to product images in CSS. |
+| BUG03 | 404 redirect broke the back button loop. | Switched from `window.location.href` to `window.location.replace()`. |
+
+## Deployment & Version Control (Requirement AC 4.1, 5.1)
+
+### Deployment
+This site is deployed to **GitHub Pages**:
+1. Go to Repository Settings.
+2. Navigate to the 'Pages' tab.
+3. Select the 'main' branch as the source and save.
+4. Access live site at: [https://mdali-1991.github.io/joy2buy/](https://mdali-1991.github.io/joy2buy/)
+
+### Version Control Strategy
+A "Frequent Commit" strategy was used to provide a clear audit trail of the development life cycle.
+- **Commits:** Small, well-defined features were committed individually.
+- **Naming:** Followed the "Action: Description" convention (e.g., `Feat: add cart persistence`).
+
+## Validator Evidence & Credits
+- **HTML:** Passed W3C Validator with 0 errors.
+- **CSS:** Passed Jigsaw CSS Validator.
+- **JS:** Checked via JSHint (ES6 configuration); no logic errors.
+- **Credits:** Images from Unsplash. Icons from FontAwesome. CSS Grid/Flexbox inspired by MDN Docs.
