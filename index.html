@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joy2buy — your trusted online marketplace for electronics, fashion, home goods and sports equipment. Discover great deals every day." />
+  <title>Home | Joy2buy</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous" />
+  <!-- Font Awesome 6.5 -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Skip to main content (Accessibility / Merit M(i)) -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary-custom sticky-top"
+    aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html" aria-label="Joy2buy Home">
+        <i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Joy2buy
+      </a>
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex me-3" role="search" id="navSearchForm" action="products.html" method="get">
+          <div class="input-group">
+            <label for="navSearch" class="visually-hidden">Search products</label>
+            <input class="form-control" type="search" id="navSearch" name="q"
+              placeholder="Search products…" aria-label="Search products" />
+            <button class="btn btn-accent" type="submit" aria-label="Submit search">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+        <a href="cart.html" class="btn btn-outline-light position-relative" aria-label="View cart">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent d-none"
+            id="cart-count" aria-label="items in cart">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <p class="text-white-50 text-uppercase fw-semibold small mb-3 letter-spacing-wide">
+              <i class="fa-solid fa-bolt me-2" aria-hidden="true"></i>New arrivals every week
+            </p>
+            <h1 id="hero-heading" class="display-4 fw-bold text-white mb-4">
+              Shop Smarter,<br />
+              <span class="text-accent">Save Better</span>
+            </h1>
+            <p class="text-white-75 lead mb-4">
+              Discover thousands of products across Electronics, Fashion, Home &amp; Living and Sports.
+              Free delivery on orders over £50.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mb-5">
+              <a href="products.html" class="btn btn-accent btn-lg px-4">
+                <i class="fa-solid fa-store me-2" aria-hidden="true"></i>Shop Now
+              </a>
+              <a href="products.html?category=electronics" class="btn btn-outline-light btn-lg px-4">
+                <i class="fa-solid fa-laptop me-2" aria-hidden="true"></i>Electronics
+              </a>
+            </div>
+            <div class="d-flex flex-wrap gap-4">
+              <div class="trust-badge text-white-75 small">
+                <i class="fa-solid fa-truck me-2 text-accent" aria-hidden="true"></i>Free delivery over £50
+              </div>
+              <div class="trust-badge text-white-75 small">
+                <i class="fa-solid fa-rotate-left me-2 text-accent" aria-hidden="true"></i>30-day returns
+              </div>
+              <div class="trust-badge text-white-75 small">
+                <i class="fa-solid fa-shield-halved me-2 text-accent" aria-hidden="true"></i>Secure checkout
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+            <div class="hero-graphic" aria-hidden="true">
+              <div class="hero-circle">
+                <i class="fa-solid fa-bag-shopping hero-icon"></i>
+              </div>
+              <div class="floating-card card-1">
+                <i class="fa-solid fa-star text-warning me-1"></i>4.9 Rating
+              </div>
+              <div class="floating-card card-2">
+                <i class="fa-solid fa-users text-primary-custom me-1"></i>12k+ Customers
+              </div>
+              <div class="floating-card card-3">
+                <i class="fa-solid fa-box text-success me-1"></i>500+ Products
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="py-5 bg-light" aria-labelledby="categories-heading">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 id="categories-heading" class="fw-bold">Shop by Category</h2>
+          <p class="text-muted">Find exactly what you are looking for</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-6 col-md-3">
+            <a href="products.html?category=electronics" class="category-card text-decoration-none text-dark">
+              <div class="card border-0 shadow-sm text-center p-4 category-card-inner">
+                <div class="category-icon mb-3">
+                  <i class="fa-solid fa-laptop fs-2 text-primary-custom" aria-hidden="true"></i>
+                </div>
+                <h3 class="h6 fw-bold mb-1">Electronics</h3>
+                <p class="text-muted small mb-0">4 products</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="products.html?category=fashion" class="category-card text-decoration-none text-dark">
+              <div class="card border-0 shadow-sm text-center p-4 category-card-inner">
+                <div class="category-icon mb-3">
+                  <i class="fa-solid fa-shirt fs-2 text-accent" aria-hidden="true"></i>
+                </div>
+                <h3 class="h6 fw-bold mb-1">Fashion</h3>
+                <p class="text-muted small mb-0">4 products</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="products.html?category=home" class="category-card text-decoration-none text-dark">
+              <div class="card border-0 shadow-sm text-center p-4 category-card-inner">
+                <div class="category-icon mb-3">
+                  <i class="fa-solid fa-couch fs-2 text-success" aria-hidden="true"></i>
+                </div>
+                <h3 class="h6 fw-bold mb-1">Home &amp; Living</h3>
+                <p class="text-muted small mb-0">3 products</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="products.html?category=sports" class="category-card text-decoration-none text-dark">
+              <div class="card border-0 shadow-sm text-center p-4 category-card-inner">
+                <div class="category-icon mb-3">
+                  <i class="fa-solid fa-dumbbell fs-2 text-danger" aria-hidden="true"></i>
+                </div>
+                <h3 class="h6 fw-bold mb-1">Sports &amp; Fitness</h3>
+                <p class="text-muted small mb-0">3 products</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS SECTION -->
+    <section class="py-5" aria-labelledby="featured-heading">
+      <div class="container">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-5">
+          <div>
+            <h2 id="featured-heading" class="fw-bold mb-1">Featured Products</h2>
+            <p class="text-muted mb-0">Hand-picked deals just for you</p>
+          </div>
+          <a href="products.html" class="btn btn-outline-primary">
+            View All Products <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <!-- Loading spinner (shown while JS loads products) -->
+        <div class="section-loader" id="featured-loader" aria-label="Loading featured products">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading featured products…</span>
+          </div>
+        </div>
+
+        <!-- Error message (shown if load fails) -->
+        <div class="section-error d-none" id="featured-error" role="alert" aria-live="assertive"></div>
+
+        <!-- Products injected by app.js -->
+        <div class="row g-4" id="featured-products-grid"
+          aria-live="polite" aria-label="Featured product listings" aria-busy="true">
+        </div>
+      </div>
+    </section>
+
+    <!-- DEALS BANNER -->
+    <section class="deals-banner py-5 text-white" aria-labelledby="deals-heading">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <p class="text-white-50 text-uppercase fw-semibold small mb-2">Limited Time Offer</p>
+            <h2 id="deals-heading" class="fw-bold mb-3">Today's Best Deals</h2>
+            <p class="text-white-75 mb-4">
+              Huge savings across all categories. Don't miss out — these prices end when the timer hits zero.
+            </p>
+            <a href="products.html" class="btn btn-accent btn-lg px-4">
+              <i class="fa-solid fa-fire me-2" aria-hidden="true"></i>Shop the Sale
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <div class="deal-countdown-display" aria-label="Time remaining for deals"
+              role="timer" aria-live="off">
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-hours" aria-label="hours">08</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <span class="countdown-sep" aria-hidden="true">:</span>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-minutes" aria-label="minutes">00</span>
+                <span class="countdown-label">Minutes</span>
+              </div>
+              <span class="countdown-sep" aria-hidden="true">:</span>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-seconds" aria-label="seconds">00</span>
+                <span class="countdown-label">Seconds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-5 bg-light" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 id="testimonials-heading" class="fw-bold">What Our Customers Say</h2>
+          <p class="text-muted">Trusted by thousands of happy shoppers across the UK</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="card border-0 shadow-sm p-4 h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar-circle bg-primary-custom text-white me-3">S</div>
+                <div>
+                  <h3 class="h6 fw-bold mb-0">Sarah M.</h3>
+                  <p class="text-muted small mb-0">London</p>
+                </div>
+              </div>
+              <div class="text-warning mb-2" aria-label="5 star rating">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <blockquote class="mb-0">
+                <p class="text-muted small">
+                  "Absolutely love Joy2buy! The noise-cancelling headphones arrived in two days and
+                  the quality is outstanding. Will definitely be shopping here again."
+                </p>
+              </blockquote>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="card border-0 shadow-sm p-4 h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar-circle bg-accent text-white me-3">J</div>
+                <div>
+                  <h3 class="h6 fw-bold mb-0">James T.</h3>
+                  <p class="text-muted small mb-0">Manchester</p>
+                </div>
+              </div>
+              <div class="text-warning mb-2" aria-label="5 star rating">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <blockquote class="mb-0">
+                <p class="text-muted small">
+                  "Great prices and fast delivery. The yoga mat is exactly as described — non-slip
+                  and well-padded. Customer service was also very helpful when I had a question."
+                </p>
+              </blockquote>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="card border-0 shadow-sm p-4 h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar-circle bg-success text-white me-3">P</div>
+                <div>
+                  <h3 class="h6 fw-bold mb-0">Priya K.</h3>
+                  <p class="text-muted small mb-0">Birmingham</p>
+                </div>
+              </div>
+              <div class="text-warning mb-2" aria-label="4 star rating">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-regular fa-star" aria-hidden="true"></i>
+              </div>
+              <blockquote class="mb-0">
+                <p class="text-muted small">
+                  "I ordered the merino wool sweater and it arrived beautifully packaged.
+                  Super soft and warm — exactly what I needed for winter. Highly recommend!"
+                </p>
+              </blockquote>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter-section py-5" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6">
+            <h2 id="newsletter-heading" class="fw-bold text-white mb-2">
+              <i class="fa-solid fa-envelope-open-text me-2" aria-hidden="true"></i>
+              Get Exclusive Deals
+            </h2>
+            <p class="text-white-75 mb-4">
+              Subscribe to our newsletter and be the first to know about new arrivals,
+              sales and exclusive offers.
+            </p>
+            <form id="newsletter-form" aria-label="Newsletter subscription form" novalidate>
+              <div class="d-flex gap-2">
+                <div class="flex-grow-1">
+                  <label for="newsletter-email" class="visually-hidden">Email address</label>
+                  <input type="email" id="newsletter-email" class="form-control"
+                    placeholder="Enter your email address"
+                    aria-label="Email address for newsletter" autocomplete="email"
+                    required aria-required="true" />
+                </div>
+                <button type="submit" class="btn btn-accent px-4" aria-label="Subscribe to newsletter">
+                  Subscribe
+                </button>
+              </div>
+              <div id="newsletter-feedback" class="text-white-75 small mt-2"
+                aria-live="polite" aria-atomic="true"></div>
+            </form>
+            <p class="text-white-50 small mt-3 mb-0">
+              No spam, ever. Unsubscribe at any time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-section pt-5 pb-3" aria-label="Site footer">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+          <a class="navbar-brand fw-bold fs-4 text-white text-decoration-none" href="index.html">
+            <i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Joy2buy
+          </a>
+          <p class="text-white-50 mt-3 small">
+            Your trusted online marketplace for quality products at unbeatable prices.
+            Delivering happiness across the UK since 2020.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://facebook.com" class="social-link"
+              aria-label="Follow us on Facebook (opens in a new tab)"
+              rel="noopener noreferrer" target="_blank">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://instagram.com" class="social-link"
+              aria-label="Follow us on Instagram (opens in a new tab)"
+              rel="noopener noreferrer" target="_blank">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com" class="social-link"
+              aria-label="Follow us on X (formerly Twitter) (opens in a new tab)"
+              rel="noopener noreferrer" target="_blank">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-2 offset-lg-2">
+          <h3 class="footer-heading">Shop</h3>
+          <ul class="list-unstyled footer-links">
+            <li><a href="products.html?category=electronics">Electronics</a></li>
+            <li><a href="products.html?category=fashion">Fashion</a></li>
+            <li><a href="products.html?category=home">Home &amp; Living</a></li>
+            <li><a href="products.html?category=sports">Sports</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <h3 class="footer-heading">Help</h3>
+          <ul class="list-unstyled footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#faq-heading">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <h3 class="footer-heading">Cart</h3>
+          <ul class="list-unstyled footer-links">
+            <li><a href="cart.html">My Cart</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary" />
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <p class="text-white-50 small mb-0">&copy; 2025 Joy2buy. All rights reserved.</p>
+        <div class="d-flex gap-3" aria-label="Accepted payment methods">
+          <i class="fa-brands fa-cc-visa fs-4 text-white-50" aria-label="Visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard fs-4 text-white-50" aria-label="Mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-paypal fs-4 text-white-50" aria-label="PayPal" title="PayPal"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION (aria-live region) -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3"
+    aria-live="polite" aria-atomic="true">
+    <div id="toast-notification"
+      class="toast align-items-center text-bg-success border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body" id="toast-message"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast" aria-label="Close notification"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <!-- App modules — load in dependency order -->
+  <script src="js/api.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+/* ============================================================
+   Joy2buy — Responsive Stylesheet
+   Unit 2: Interactive Front End Development
+   Gateway Qualifications Level 5 Diploma — Web Application Development
+   ============================================================
+   All media queries use mobile-first min-width breakpoints.
+   Base styles (no media query) target the smallest viewport.
+
+   Breakpoints (matching Bootstrap 5):
+   - Default  → xs  < 576px  (mobile portrait — base styles)
+   - sm       ≥ 576px  (mobile landscape / large phone)
+   - md       ≥ 768px  (tablet)
+   - lg       ≥ 992px  (desktop)
+   - xl       ≥ 1200px (large desktop)
+   ============================================================ */
+
+/* ============================================================
+   BASE (mobile-first, < 576px)
+   Default styles without a media query apply to the smallest
+   viewport. Everything below overrides upward.
+   ============================================================ */
+
+/* Hero — stacked, centred on mobile */
+.hero-section {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.hero-section .d-flex.flex-wrap.gap-3,
+.hero-section .d-flex.flex-wrap.gap-4 {
+  justify-content: center;
+}
+
+/* Hide decorative floating cards on very small screens */
+.floating-card {
+  display: none;
+}
+
+/* Hero graphic — shrink on mobile */
+.hero-graphic {
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 2rem;
+}
+
+.hero-circle {
+  width: 200px;
+  height: 200px;
+  margin: 30px auto;
+}
+
+.hero-icon {
+  font-size: 5rem;
+}
+
+/* Countdown — compact on mobile */
+.countdown-item {
+  min-width: 64px;
+  padding: 0.625rem 0.75rem;
+}
+
+.countdown-num {
+  font-size: 1.75rem;
+}
+
+/* Error page numbers — scale down */
+.error-4 {
+  font-size: 4.5rem;
+}
+
+.error-icon {
+  font-size: 3rem;
+}
+
+/* Cart items — stack on mobile */
+.cart-item {
+  flex-direction: column;
+}
+
+/* Filter panel — remove sticky positioning on mobile */
+.filter-panel {
+  position: static;
+}
+
+/* Navbar brand — smaller on mobile */
+.navbar-brand {
+  font-size: 1.25rem !important;
+}
+
+/* Page header — reduce padding on mobile */
+.page-header {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+/* Hero headline — reduce on mobile */
+.hero-section .display-4 {
+  font-size: 1.9rem;
+}
+
+/* ============================================================
+   sm — Small devices (landscape phones, >= 576px)
+   ============================================================ */
+@media (min-width: 576px) {
+
+  /* Hero — restore inline alignment */
+  .hero-section {
+    text-align: left;
+  }
+
+  .hero-section .d-flex.flex-wrap.gap-3,
+  .hero-section .d-flex.flex-wrap.gap-4 {
+    justify-content: flex-start;
+  }
+
+  /* Countdown items — slightly larger */
+  .countdown-item {
+    min-width: 76px;
+    padding: 0.75rem 1rem;
+  }
+
+  .countdown-num {
+    font-size: 2rem;
+  }
+
+  /* Error numbers — slightly larger */
+  .error-4 {
+    font-size: 6rem;
+  }
+
+  .error-icon {
+    font-size: 4rem;
+  }
+
+  /* Cart items — row again at sm */
+  .cart-item {
+    flex-direction: row;
+  }
+
+}
+
+/* ============================================================
+   md — Medium devices (tablets, >= 768px)
+   ============================================================ */
+@media (min-width: 768px) {
+
+  /* Hero headline — restore size */
+  .hero-section .display-4 {
+    font-size: 2.5rem;
+  }
+
+  /* Countdown — full size */
+  .countdown-item {
+    min-width: 90px;
+    padding: 1rem 1.5rem;
+  }
+
+  .countdown-num {
+    font-size: 2.5rem;
+  }
+
+  /* Floating cards — show from md upwards */
+  .floating-card {
+    display: block;
+  }
+
+  /* Hero graphic — medium size */
+  .hero-graphic {
+    width: 340px;
+    height: 340px;
+    margin: 0;
+  }
+
+  .hero-circle {
+    width: 260px;
+    height: 260px;
+    margin: 40px auto;
+  }
+
+  .hero-icon {
+    font-size: 6.5rem;
+  }
+
+  /* Error numbers — full size */
+  .error-4 {
+    font-size: 8rem;
+  }
+
+  .error-icon {
+    font-size: 5rem;
+  }
+
+  /* Navbar brand — restore size */
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
+
+  /* Page header — full padding */
+  .page-header {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* Product grid — 2 columns from md */
+  #featured-products-grid .col-sm-6,
+  #products-grid .col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+}
+
+/* ============================================================
+   lg — Large devices (desktops, >= 992px)
+   ============================================================ */
+@media (min-width: 992px) {
+
+  /* Hero — extra padding on desktop */
+  .hero-section {
+    padding: 6rem 0;
+  }
+
+  /* Hero graphic — full size */
+  .hero-graphic {
+    width: 400px;
+    height: 400px;
+  }
+
+  .hero-circle {
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+  }
+
+  .hero-icon {
+    font-size: 7rem;
+  }
+
+  /* Filter panel — sticky on desktop */
+  .filter-panel {
+    position: sticky;
+    top: calc(var(--navbar-height) + 1rem);
+  }
+
+  /* Product grid — 3 columns from lg */
+  #featured-products-grid .col-xl-4,
+  #products-grid .col-xl-4 {
+    flex: 0 0 auto;
+    width: 33.3333%;
+  }
+
+  /* Hero headline — full display size */
+  .hero-section .display-4 {
+    font-size: 3.5rem;
+  }
+
+}
+
+/* ============================================================
+   xl — Extra large devices (>= 1200px)
+   ============================================================ */
+@media (min-width: 1200px) {
+
+  .container {
+    max-width: 1200px;
+  }
+
+  /* More hero breathing room */
+  .hero-section {
+    padding: 7rem 0;
+  }
+
+}
+
+/* ============================================================
+   Hamburger nav — accessibility / keyboard
+   The Bootstrap navbar-toggler handles visibility; these rules
+   ensure the collapsed menu is properly hidden from AT.
+   ============================================================ */
+@media (max-width: 991.98px) {
+
+  /* Ensure collapsed nav is hidden from screen readers */
+  .navbar-collapse:not(.show) {
+    visibility: hidden;
+  }
+
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    visibility: visible;
+  }
+
+  /* Stack nav links vertically, add spacing */
+  .navbar-collapse .navbar-nav {
+    padding: 0.75rem 0;
+    gap: 0.25rem;
+  }
+
+  .navbar-collapse .nav-link {
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+  }
+
+  /* Move search form and cart button below nav links */
+  .navbar-collapse .d-flex.me-3 {
+    margin-top: 0.75rem;
+  }
+
+  .navbar-collapse a[href="cart.html"] {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+  }
+
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Page not found — Joy2buy. The page you requested does not exist. You will be redirected to the homepage in 10 seconds." />
+  <!-- Meta refresh fallback: redirects if JavaScript is disabled (Merit M(ii)) -->
+  <meta http-equiv="refresh" content="10;url=index.html" />
+  <title>404 — Page Not Found | Joy2buy</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous" />
+  <!-- Font Awesome 6.5 -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Skip to main content (Accessibility / Merit M(i)) -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-dark bg-primary-custom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html" aria-label="Joy2buy Home">
+        <i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Joy2buy
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="index.html" class="btn btn-outline-light btn-sm">
+          <i class="fa-solid fa-house me-1" aria-hidden="true"></i>Home
+        </a>
+        <a href="products.html" class="btn btn-outline-light btn-sm">
+          <i class="fa-solid fa-store me-1" aria-hidden="true"></i>Shop
+        </a>
+        <a href="contact.html" class="btn btn-outline-light btn-sm">
+          <i class="fa-solid fa-envelope me-1" aria-hidden="true"></i>Contact
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== 404 MAIN CONTENT ========== -->
+  <main class="flex-grow-1 d-flex align-items-center" id="main-content">
+    <div class="container text-center py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9">
+
+          <!-- Animated 404 graphic (decorative) -->
+          <div class="error-graphic mb-4" aria-hidden="true">
+            <div class="error-number">
+              <span class="error-4">4</span>
+              <span class="error-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </span>
+              <span class="error-4">4</span>
+            </div>
+          </div>
+
+          <h1 class="fw-bold mb-3">Oops — Page Not Found</h1>
+          <p class="lead text-muted mb-4">
+            The page you are looking for has been moved, deleted, or never existed.
+            We will get you back on track right away.
+          </p>
+
+          <!-- Auto-redirect countdown (Merit M(ii)) -->
+          <div class="alert alert-info d-flex align-items-center justify-content-center gap-2 mb-4"
+            role="status" aria-live="polite" aria-atomic="true">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            <span>
+              Redirecting to the homepage in
+              <strong id="countdown-display" aria-label="seconds remaining">10</strong> seconds.
+            </span>
+          </div>
+
+          <!-- CTA buttons -->
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+            <a href="index.html" class="btn btn-primary-custom btn-lg px-4">
+              <i class="fa-solid fa-house me-2" aria-hidden="true"></i>Go Home Now
+            </a>
+            <a href="products.html" class="btn btn-outline-primary btn-lg px-4">
+              <i class="fa-solid fa-store me-2" aria-hidden="true"></i>Browse Products
+            </a>
+            <a href="contact.html" class="btn btn-outline-secondary btn-lg px-4">
+              <i class="fa-solid fa-envelope me-2" aria-hidden="true"></i>Contact Us
+            </a>
+          </div>
+
+          <!-- Quick category links -->
+          <div class="card border-0 bg-light p-4">
+            <h2 class="h6 fw-bold mb-3">Looking for something specific?</h2>
+            <div class="row g-3 text-start">
+              <div class="col-sm-6">
+                <a href="products.html?category=electronics"
+                  class="text-decoration-none d-flex align-items-center gap-2 text-dark py-1">
+                  <i class="fa-solid fa-laptop text-primary-custom" aria-hidden="true"></i>
+                  <span>Electronics</span>
+                </a>
+              </div>
+              <div class="col-sm-6">
+                <a href="products.html?category=fashion"
+                  class="text-decoration-none d-flex align-items-center gap-2 text-dark py-1">
+                  <i class="fa-solid fa-shirt text-accent" aria-hidden="true"></i>
+                  <span>Fashion</span>
+                </a>
+              </div>
+              <div class="col-sm-6">
+                <a href="products.html?category=home"
+                  class="text-decoration-none d-flex align-items-center gap-2 text-dark py-1">
+                  <i class="fa-solid fa-couch text-success" aria-hidden="true"></i>
+                  <span>Home &amp; Living</span>
+                </a>
+              </div>
+              <div class="col-sm-6">
+                <a href="products.html?category=sports"
+                  class="text-decoration-none d-flex align-items-center gap-2 text-dark py-1">
+                  <i class="fa-solid fa-dumbbell text-danger" aria-hidden="true"></i>
+                  <span>Sports &amp; Fitness</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-section py-3" aria-label="Site footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <a class="navbar-brand fw-bold text-white text-decoration-none" href="index.html">
+          <i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Joy2buy
+        </a>
+        <p class="text-white-50 small mb-0">&copy; 2025 Joy2buy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <script>
+    /* jshint esversion: 6 */
+    "use strict";
+
+    /**
+     * 404 Countdown and JS redirect (Merit M(ii)).
+     * Counts down from 10 seconds and redirects to index.html.
+     * The <meta http-equiv="refresh"> above serves as a no-JS fallback.
+     */
+    (function () {
+      var REDIRECT_SECONDS = 10;
+      var REDIRECT_URL     = "index.html";
+
+      var displayEl = document.getElementById("countdown-display");
+      var remaining = REDIRECT_SECONDS;
+
+      var intervalId = setInterval(function () {
+        remaining -= 1;
+
+        if (displayEl) {
+          displayEl.textContent = String(remaining);
+        }
+
+        if (remaining <= 0) {
+          clearInterval(intervalId);
+          window.location.href = REDIRECT_URL;
+        }
+      }, 1000);
+    }());
+  </script>
+
+</body>
+</html>
