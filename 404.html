@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Page not found - Joy2buy. The page you are looking for does not exist." />
+  <!-- Redirect to home after 10 seconds (Merit criterion M(ii)) -->
+  <meta http-equiv="refresh" content="10;url=index.html" />
+  <title>Page Not Found (404) | Joy2buy</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary-custom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="index.html" aria-label="Joy2buy Home">
+        <i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Joy2buy
+      </a>
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html" class="btn btn-outline-light btn-sm">Home</a>
+        <a href="products.html" class="btn btn-outline-light btn-sm">Shop</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== 404 CONTENT ========== -->
+  <main class="flex-grow-1 d-flex align-items-center" id="main-content">
+    <div class="container text-center py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+
+          <!-- Animated 404 graphic -->
+          <div class="error-graphic mb-4" aria-hidden="true">
+            <div class="error-number">
+              <span class="error-4">4</span>
+              <span class="error-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </span>
+              <span class="error-4">4</span>
+            </div>
+          </div>
+
+          <h1 class="fw-bold mb-3">Oops! Page Not Found</h1>
+          <p class="lead text-muted mb-4">
+            The page you're looking for has been moved, deleted, or never existed.
+            Don't worry — we'll get you back on track!
+          </p>
+
+          <!-- Auto-redirect countdown (Merit M(ii)) -->
+          <div class="alert alert-info d-flex align-items-center justify-content-center gap-2 mb-4" role="status" aria-live="polite">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            <span>You'll be automatically redirected to the homepage in
+              <strong id="countdown-display">10</strong> seconds.
+            </span>
+          </div>
+
+          <!-- CTA buttons -->
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+            <a href="index.html" class="btn btn-primary-custom btn-lg px-4">
+              <i class="fa-solid fa-house me-2" aria-hidden="true"></i>Go Home Now
+            </a>
+            <a href="products.html" class="btn btn-outline-primary btn-lg px-4">
+              <i class="fa-solid fa-store me-2" aria-hidden="true"></i>Browse Products
+            </a>
+            <button class="btn btn-outline-secondary btn-lg px-4" onclick="history.back()" aria-label="Go back to previous page">
+              <i class="fa-solid fa-arrow-left me-2" aria-hidden="true"></i>Go Back
+            </button>
+          </div>
+
+          <!-- Helpful links -->
+          <div class="card border-0 bg-light p-4">
+            <h2 class="h6 fw-bold mb-3">Looking for something specific?</h2>
+            <div class="row g-3 text-start">
+              <div class="col-sm-6">
+                <a href="products.html?category=electronics" class="text-decoration-none d-flex align-items-center gap-2 text-dark py-1">
+                  <i class="fa-solid fa-laptop text-primary-custom" aria-hidden="true"></i>
+                  <span>Electronics</span>
+                </a>
+              </div>
+              <div class="col-sm-6">
+                <a href="products.html?category=fashion" class="text-decoration-none d-flex align-items-center gap-2 text-dark py-1">
+                  <i class="fa-solid fa-shirt text-accent" aria-hidden="true"></i>
+                  <span>Fashion</span>
+                </a>
+              </div>
+              <div class="col-sm-6">
+                <a href="products.html?category=home" class="text-decoration-none d-flex align-items-center gap-2 text-dark py-1">
+                  <i class="fa-solid fa-couch text-success" aria-hidden="true"></i>
+                  <span>Home &amp; Living</span>
+                </a>
+              </div>
+              <div class="col-sm-6">
+                <a href="contact.html" class="text-decoration-none d-flex align-items-center gap-2 text-dark py-1">
+                  <i class="fa-solid fa-envelope text-info" aria-hidden="true"></i>
+                  <span>Contact Support</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-section py-3 mt-auto" aria-label="Site footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <a class="navbar-brand fw-bold text-white text-decoration-none" href="index.html">
+          <i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Joy2buy
+        </a>
+        <p class="text-white-50 small mb-0">&copy; 2025 Joy2buy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // JavaScript countdown redirect (Merit criterion M(ii))
+    // This provides JS-based redirect in addition to the meta refresh
+    (function () {
+      "use strict";
+      var seconds = 10;
+      var displayEl = document.getElementById("countdown-display");
+
+      var interval = setInterval(function () {
+        seconds -= 1;
+        if (displayEl) {
+          displayEl.textContent = seconds;
+        }
+        if (seconds <= 0) {
+          clearInterval(interval);
+          window.location.href = "index.html";
+        }
+      }, 1000);
+    }());
+  </script>
+</body>
+</html>

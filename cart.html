@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your Joy2buy shopping cart. Review items, adjust quantities and checkout securely." />
+  <title>Shopping Cart | Joy2buy</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary-custom sticky-top" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="index.html" aria-label="Joy2buy Home">
+        <i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Joy2buy
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#mainNav" aria-controls="mainNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a href="cart.html" class="btn btn-outline-light position-relative active" aria-label="View cart" aria-current="page">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent"
+            id="cart-count" aria-label="items in cart">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== PAGE HEADER ========== -->
+  <header class="page-header py-4">
+    <div class="container">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb mb-2">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="products.html">Shop</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Cart</li>
+        </ol>
+      </nav>
+      <h1 class="fw-bold mb-0">
+        <i class="fa-solid fa-cart-shopping me-2" aria-hidden="true"></i>Shopping Cart
+      </h1>
+    </div>
+  </header>
+
+  <!-- ========== CART CONTENT ========== -->
+  <main class="py-5" id="main-content">
+    <div class="container">
+
+      <!-- EMPTY CART STATE -->
+      <div id="empty-cart" class="text-center py-5 d-none" role="status">
+        <i class="fa-solid fa-cart-xmark display-1 text-muted mb-4" aria-hidden="true"></i>
+        <h2 class="h4 text-muted mb-3">Your cart is empty</h2>
+        <p class="text-muted mb-4">Looks like you haven't added anything yet. Start shopping!</p>
+        <a href="products.html" class="btn btn-primary-custom btn-lg">
+          <i class="fa-solid fa-store me-2" aria-hidden="true"></i>Continue Shopping
+        </a>
+      </div>
+
+      <!-- CART WITH ITEMS -->
+      <div id="cart-content" class="row g-4">
+
+        <!-- Cart Items Column -->
+        <section class="col-lg-8" aria-labelledby="cart-items-heading">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 id="cart-items-heading" class="h5 fw-bold mb-0">
+              Cart Items (<span id="item-count">0</span>)
+            </h2>
+            <button class="btn btn-sm btn-outline-danger" id="clear-cart-btn"
+              aria-label="Remove all items from cart">
+              <i class="fa-solid fa-trash me-1" aria-hidden="true"></i>Clear Cart
+            </button>
+          </div>
+
+          <!-- Cart items list -->
+          <div id="cart-items-list" aria-live="polite" aria-label="Cart items">
+            <!-- Injected by cart.js -->
+          </div>
+
+          <!-- Continue shopping -->
+          <div class="mt-4">
+            <a href="products.html" class="btn btn-outline-primary">
+              <i class="fa-solid fa-arrow-left me-2" aria-hidden="true"></i>Continue Shopping
+            </a>
+          </div>
+        </section>
+
+        <!-- Order Summary Column -->
+        <aside class="col-lg-4" aria-labelledby="order-summary-heading">
+          <div class="card border-0 shadow-sm p-4 sticky-top" style="top: 80px;">
+            <h2 id="order-summary-heading" class="h5 fw-bold mb-4">Order Summary</h2>
+
+            <dl class="order-summary-list">
+              <div class="d-flex justify-content-between mb-2">
+                <dt class="fw-normal text-muted">Subtotal</dt>
+                <dd class="fw-semibold mb-0" id="summary-subtotal">£0.00</dd>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <dt class="fw-normal text-muted">Delivery</dt>
+                <dd class="fw-semibold mb-0" id="summary-delivery">£4.99</dd>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <dt class="fw-normal text-success">Discount</dt>
+                <dd class="fw-semibold mb-0 text-success" id="summary-discount">-£0.00</dd>
+              </div>
+            </dl>
+
+            <!-- Promo code -->
+            <div class="mb-3">
+              <label for="promo-input" class="form-label small fw-semibold">Promo Code</label>
+              <div class="input-group">
+                <input type="text" id="promo-input" class="form-control"
+                  placeholder="Enter code" aria-label="Promo code" />
+                <button class="btn btn-outline-secondary" id="apply-promo" type="button">Apply</button>
+              </div>
+              <div id="promo-feedback" class="form-text" role="alert" aria-live="polite"></div>
+            </div>
+
+            <hr />
+            <div class="d-flex justify-content-between mb-4">
+              <span class="fw-bold fs-5">Total</span>
+              <span class="fw-bold fs-5 text-primary-custom" id="summary-total">£0.00</span>
+            </div>
+
+            <!-- Free delivery progress -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between small mb-1">
+                <span class="text-muted">Free delivery progress</span>
+                <span id="delivery-progress-text" class="text-muted">£0 of £50</span>
+              </div>
+              <div class="progress" style="height: 8px;" role="progressbar"
+                aria-label="Free delivery progress"
+                aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"
+                id="delivery-progress-bar-container">
+                <div class="progress-bar bg-success" id="delivery-progress-bar" style="width: 0%"></div>
+              </div>
+              <p class="small text-muted mt-1" id="delivery-message">Spend £50 for free delivery!</p>
+            </div>
+
+            <button class="btn btn-accent btn-lg w-100" id="checkout-btn"
+              aria-label="Proceed to checkout">
+              <i class="fa-solid fa-lock me-2" aria-hidden="true"></i>Proceed to Checkout
+            </button>
+            <p class="text-center text-muted small mt-2">
+              <i class="fa-solid fa-shield-halved me-1" aria-hidden="true"></i>Secure 256-bit SSL checkout
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== CHECKOUT MODAL ========== -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1"
+    aria-labelledby="checkoutModalLabel" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-primary-custom text-white">
+          <h2 class="modal-title h5" id="checkoutModalLabel">
+            <i class="fa-solid fa-lock me-2" aria-hidden="true"></i>Secure Checkout
+          </h2>
+          <button type="button" class="btn-close btn-close-white"
+            data-bs-dismiss="modal" aria-label="Close checkout"></button>
+        </div>
+        <div class="modal-body p-4">
+
+          <!-- Progress steps -->
+          <div class="checkout-steps d-flex justify-content-center mb-5" aria-label="Checkout steps">
+            <div class="checkout-step active" id="step-indicator-1" aria-current="step">
+              <div class="step-circle">1</div>
+              <span class="step-label">Delivery</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="checkout-step" id="step-indicator-2">
+              <div class="step-circle">2</div>
+              <span class="step-label">Payment</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="checkout-step" id="step-indicator-3">
+              <div class="step-circle">3</div>
+              <span class="step-label">Confirm</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: Delivery Details -->
+          <div id="checkout-step-1">
+            <h3 class="h6 fw-bold mb-4 text-uppercase text-muted">Delivery Details</h3>
+            <form id="delivery-form" novalidate aria-label="Delivery details form">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="first-name" class="form-label">First Name <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="text" id="first-name" name="firstName" class="form-control"
+                    placeholder="Jane" required aria-required="true" autocomplete="given-name" />
+                  <div class="invalid-feedback" role="alert">Please enter your first name.</div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="last-name" class="form-label">Last Name <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="text" id="last-name" name="lastName" class="form-control"
+                    placeholder="Doe" required aria-required="true" autocomplete="family-name" />
+                  <div class="invalid-feedback" role="alert">Please enter your last name.</div>
+                </div>
+                <div class="col-12">
+                  <label for="email" class="form-label">Email Address <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" class="form-control"
+                    placeholder="jane@example.com" required aria-required="true" autocomplete="email" />
+                  <div class="invalid-feedback" role="alert">Please enter a valid email address.</div>
+                </div>
+                <div class="col-12">
+                  <label for="phone" class="form-label">Phone Number <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="tel" id="phone" name="phone" class="form-control"
+                    placeholder="+44 7700 900000" required aria-required="true" autocomplete="tel"
+                    pattern="[+]?[0-9\s\-()]{7,15}" />
+                  <div class="invalid-feedback" role="alert">Please enter a valid phone number.</div>
+                </div>
+                <div class="col-12">
+                  <label for="address" class="form-label">Street Address <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="text" id="address" name="address" class="form-control"
+                    placeholder="123 High Street" required aria-required="true" autocomplete="street-address" />
+                  <div class="invalid-feedback" role="alert">Please enter your street address.</div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="city" class="form-label">City <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="text" id="city" name="city" class="form-control"
+                    placeholder="London" required aria-required="true" autocomplete="address-level2" />
+                  <div class="invalid-feedback" role="alert">Please enter your city.</div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="postcode" class="form-label">Postcode <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="text" id="postcode" name="postcode" class="form-control"
+                    placeholder="SW1A 1AA" required aria-required="true" autocomplete="postal-code"
+                    pattern="[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}" />
+                  <div class="invalid-feedback" role="alert">Please enter a valid UK postcode.</div>
+                </div>
+                <div class="col-12">
+                  <label for="delivery-option" class="form-label">Delivery Option</label>
+                  <select class="form-select" id="delivery-option" name="deliveryOption" aria-label="Choose delivery speed">
+                    <option value="standard">Standard Delivery (3–5 days) — £4.99</option>
+                    <option value="express">Express Delivery (1–2 days) — £9.99</option>
+                    <option value="next-day">Next Day Delivery — £14.99</option>
+                  </select>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end mt-4">
+                <button type="button" class="btn btn-primary-custom px-4" id="step1-next">
+                  Next: Payment <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 2: Payment -->
+          <div id="checkout-step-2" class="d-none">
+            <h3 class="h6 fw-bold mb-4 text-uppercase text-muted">Payment Details</h3>
+            <form id="payment-form" novalidate aria-label="Payment details form">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="card-name" class="form-label">Name on Card <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="text" id="card-name" name="cardName" class="form-control"
+                    placeholder="Jane Doe" required aria-required="true" autocomplete="cc-name" />
+                  <div class="invalid-feedback" role="alert">Please enter the name on your card.</div>
+                </div>
+                <div class="col-12">
+                  <label for="card-number" class="form-label">Card Number <span class="text-danger" aria-hidden="true">*</span></label>
+                  <div class="input-group">
+                    <input type="text" id="card-number" name="cardNumber" class="form-control"
+                      placeholder="1234 5678 9012 3456" required aria-required="true"
+                      maxlength="19" autocomplete="cc-number"
+                      pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" />
+                    <span class="input-group-text" aria-hidden="true">
+                      <i class="fa-brands fa-cc-visa me-1"></i>
+                      <i class="fa-brands fa-cc-mastercard"></i>
+                    </span>
+                  </div>
+                  <div class="invalid-feedback" role="alert">Please enter a valid 16-digit card number.</div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="card-expiry" class="form-label">Expiry Date <span class="text-danger" aria-hidden="true">*</span></label>
+                  <input type="text" id="card-expiry" name="cardExpiry" class="form-control"
+                    placeholder="MM/YY" required aria-required="true" maxlength="5"
+                    autocomplete="cc-exp" pattern="(0[1-9]|1[0-2])\/([0-9]{2})" />
+                  <div class="invalid-feedback" role="alert">Please enter a valid expiry date (MM/YY).</div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="card-cvv" class="form-label">CVV <span class="text-danger" aria-hidden="true">*</span></label>
+                  <div class="input-group">
+                    <input type="text" id="card-cvv" name="cardCvv" class="form-control"
+                      placeholder="123" required aria-required="true" maxlength="4"
+                      autocomplete="cc-csc" pattern="\d{3,4}" />
+                    <span class="input-group-text" aria-haspopup="dialog">
+                      <i class="fa-solid fa-circle-question text-muted" aria-label="CVV info" title="3–4 digit security code on the back of your card"></i>
+                    </span>
+                  </div>
+                  <div class="invalid-feedback" role="alert">Please enter a valid CVV (3–4 digits).</div>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="save-card" name="saveCard" />
+                    <label class="form-check-label small text-muted" for="save-card">
+                      Save card for future purchases (demo only)
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-outline-secondary" id="step2-back">
+                  <i class="fa-solid fa-arrow-left me-2" aria-hidden="true"></i>Back
+                </button>
+                <button type="button" class="btn btn-primary-custom px-4" id="step2-next">
+                  Review Order <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 3: Review & Confirm -->
+          <div id="checkout-step-3" class="d-none">
+            <h3 class="h6 fw-bold mb-4 text-uppercase text-muted">Review Your Order</h3>
+            <div id="order-review-details" class="mb-4" aria-live="polite">
+              <!-- Populated by JS -->
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-outline-secondary" id="step3-back">
+                <i class="fa-solid fa-arrow-left me-2" aria-hidden="true"></i>Edit Payment
+              </button>
+              <button type="button" class="btn btn-accent btn-lg px-5" id="place-order-btn">
+                <i class="fa-solid fa-check me-2" aria-hidden="true"></i>Place Order
+              </button>
+            </div>
+          </div>
+
+          <!-- ORDER SUCCESS -->
+          <div id="checkout-success" class="text-center py-4 d-none" role="status" aria-live="assertive">
+            <div class="success-animation mb-4" aria-hidden="true">
+              <div class="success-circle">
+                <i class="fa-solid fa-check fs-1 text-success"></i>
+              </div>
+            </div>
+            <h2 class="h4 fw-bold text-success mb-2">Order Placed!</h2>
+            <p class="text-muted mb-1">Thank you for your purchase.</p>
+            <p class="text-muted">Your order confirmation has been sent to your email.</p>
+            <p class="fw-semibold">Order #<span id="order-number">JOY-000000</span></p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <a href="index.html" class="btn btn-primary-custom">Return to Home</a>
+              <a href="products.html" class="btn btn-outline-primary">Continue Shopping</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear Cart Confirmation Modal -->
+  <div class="modal fade" id="clearCartModal" tabindex="-1"
+    aria-labelledby="clearCartModalLabel" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="clearCartModalLabel">Clear Cart</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to remove all items from your cart? This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirm-clear-cart">Yes, Clear Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" aria-live="polite" aria-atomic="true">
+    <div id="toast-notification" class="toast align-items-center text-bg-success border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body" id="toast-message">Cart updated!</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast" aria-label="Close notification"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-section pt-4 pb-3" aria-label="Site footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <a class="navbar-brand fw-bold text-white text-decoration-none" href="index.html">
+          <i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Joy2buy
+        </a>
+        <p class="text-white-50 small mb-0">&copy; 2025 Joy2buy. All rights reserved.</p>
+        <div class="d-flex gap-3">
+          <i class="fa-brands fa-cc-visa fs-4 text-white-50" aria-label="Visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard fs-4 text-white-50" aria-label="Mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-paypal fs-4 text-white-50" aria-label="PayPal" title="PayPal"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
